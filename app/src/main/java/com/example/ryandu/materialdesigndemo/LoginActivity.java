@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             tlUsername.setErrorEnabled(false);
             tlPassword.setErrorEnabled(false);
             Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
+            MainActivity.actionStart(this);
         }
     }
 }
