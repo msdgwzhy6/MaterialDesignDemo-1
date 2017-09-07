@@ -1,11 +1,13 @@
 package com.example.ryandu.materialdesigndemo;
 
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.regex.Matcher;
@@ -13,6 +15,7 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private RelativeLayout relativeLayout;
     private TextInputLayout tlUsername;
     private EditText etUsername;
     private TextInputLayout tlPassword;
@@ -27,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        relativeLayout = (RelativeLayout) findViewById(R.id.activity_login);
         tlUsername = (TextInputLayout) findViewById(R.id.tl_username);
         tlPassword = (TextInputLayout) findViewById(R.id.tl_password);
         etUsername = (EditText) findViewById(R.id.et_username);
@@ -64,7 +68,18 @@ public class LoginActivity extends AppCompatActivity {
             tlUsername.setErrorEnabled(false);
             tlPassword.setErrorEnabled(false);
             Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
-            MainActivity.actionStart(this);
         }
+        showSnackbar();
     }
+
+    private void showSnackbar() {
+        Snackbar.make(relativeLayout, "Login?", Snackbar.LENGTH_LONG)
+                .setAction("Now", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MainActivity.actionStart(LoginActivity.this);
+                    }
+                }).setDuration(Snackbar.LENGTH_LONG).show();
+    }
+
 }
