@@ -3,7 +3,7 @@ A Material Design  style  demo
 
 <h2>Document</h2>
 
-- [中文](https://github.com/duyangs/ZBaseLib/wiki)
+- [中文](http://www.jianshu.com/p/cd7e5d947e1f)
 
 <h2>Open source libraries used in the project</h2>
 
